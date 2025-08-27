@@ -1,4 +1,4 @@
 
-let StrikeGame = StrikeAndBallGame()
-StrikeGame.inputCorrectNumber()
-StrikeGame.thisGameRandomNumber()
+let gameStart = StrikeAndBallGameLv2()
+
+gameStart.gameStart()
