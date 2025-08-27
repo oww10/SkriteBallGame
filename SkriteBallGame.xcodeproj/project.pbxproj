@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5071A66A2E5DC5A60047F651 /* lv1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5071A6692E5DC5A60047F651 /* lv1.swift */; };
+		5071A66C2E5DC9950047F651 /* lv2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5071A66B2E5DC9950047F651 /* lv2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		5071A65F2E5DC5360047F651 /* SkriteBallGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SkriteBallGame; sourceTree = BUILT_PRODUCTS_DIR; };
 		5071A6692E5DC5A60047F651 /* lv1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lv1.swift; sourceTree = "<group>"; };
+		5071A66B2E5DC9950047F651 /* lv2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lv2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -50,6 +52,7 @@
 			isa = PBXGroup;
 			children = (
 				5071A6692E5DC5A60047F651 /* lv1.swift */,
+				5071A66B2E5DC9950047F651 /* lv2.swift */,
 				5071A6612E5DC5360047F651 /* SkriteBallGame */,
 				5071A6602E5DC5360047F651 /* Products */,
 			);
@@ -127,6 +130,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5071A66C2E5DC9950047F651 /* lv2.swift in Sources */,
 				5071A66A2E5DC5A60047F651 /* lv1.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
