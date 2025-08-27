@@ -61,7 +61,7 @@ class insertNumber:digitNumber{
     
     
     func inputNumberReadLine() -> [Int]{
-        print("3자리수를 입력해주세요.")
+        print("올바르지 않은 입력값입니다")
         // 옵셔널 바인딩
         guard let inputCorrect = readLine() else{
             return inputNumberReadLine()
@@ -69,18 +69,18 @@ class insertNumber:digitNumber{
         
         //3자리숫자인지 체크
         guard Int(inputCorrect) != nil && inputCorrect.count == 3 else{
-            print("정수형 3자리 숫자로 다시 입력해주세요.")
+            print("올바르지 않은 입력값입니다")
             return inputNumberReadLine()
         }
         //0포함이면 오류
         if inputCorrect.contains("0"){
-            print("0이 들어가있습니다.")
+            print("올바르지 않은 입력값입니다")
             return inputNumberReadLine()
         }
         // set으로 중복 체크하기
         let dupNumbers = Set(inputCorrect)
         if dupNumbers.count != 3 {
-            print("겹치는 숫자 생성오류 재생성")
+            print("올바르지 않은 입력값입니다")
             return inputNumberReadLine()
         }
         
@@ -89,15 +89,6 @@ class insertNumber:digitNumber{
         let digitArr = arrDigitNum(randomNum: number)
         
         return digitArr
-        
-//        let inputNumber1 = (Int(inputCorrect)! % 100) % 10
-//        let inputNumber2 = (Int(inputCorrect)! % 100) / 10
-//        let inputNumber3 = Int(inputCorrect)! / 100
-//        let inputNumberArr = [inputNumber3,inputNumber2,inputNumber1]
-//        
-//        
-//        
-//        return inputNumberArr
     }
     
 }
@@ -111,11 +102,7 @@ class RandomNumber:digitNumber{
         print("생성된 랜덤숫자는 \(randomNumber)")
         let number = randomNumber
         let digitArr = arrDigitNum(randomNum: number)
-        
-//        let randomNumber1 = (randomNumber % 100) % 10
-//        let randomNumber2 = (randomNumber % 100) / 10
-//        let randomNumber3 = randomNumber / 100
-//        let randomNumberArr = [randomNumber3,randomNumber2,randomNumber1]
+
         
         if digitArr.contains([0]){
             print("0이 들어있습니다 숫자 생성오류 숫자 재생성")
@@ -132,14 +119,7 @@ class RandomNumber:digitNumber{
     }
     
 }
-class StrikeAndBallGameLv2{
-    let checkNum = checkRandomNumber()
-    
-    func gameStart(){
-        checkNum.checkRandomNumber1()
-    }
-    
-}
+
 
 class checkRandomNumber{
     let randomNumber = RandomNumber()
@@ -149,19 +129,17 @@ class checkRandomNumber{
     func checkRandomNumber1(){
         randomNumber.randomNum = randomNumber.createRandomNumber()
         inputNumber.inputNum = inputNumber.inputNumberReadLine()
-        //print(inputNumber.inputNum)
+
         var strike = 0
         var ball = 0
         while true {
             for i in 0..<3{
 
-                //print(inputNumber.inputNum[i], randomNumber.randomNum[i])
+
                 if randomNumber.randomNum[i] == inputNumber.inputNum[i]{
-                    //print("strike가 있었습니다.")
                     strike += 1
                 }
                 if randomNumber.randomNum.contains(inputNumber.inputNum[i]){
-                    //print("ball이 있었습니다.")
                     ball += 1
                     if randomNumber.randomNum[i] == inputNumber.inputNum[i]{
                         ball -= 1
@@ -178,9 +156,19 @@ class checkRandomNumber{
             }
             
             print("strike: \(strike),ball: \(ball)")
+            
             strike = 0
             ball = 0
             inputNumber.inputNum = inputNumber.inputNumberReadLine()
         }
+    }
+    
+    class StrikeAndBallGameLv2{
+        let checkNum = checkRandomNumber()
+        
+        func gameStart(){
+            checkNum.checkRandomNumber1()
+        }
+        
     }
 }
