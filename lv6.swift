@@ -22,7 +22,7 @@ class insertNumber:DigitNumber{
     
     
     func inputNumberReadLine() {
-        print("숫자를 입력하세요")
+        print("\n숫자를 입력하세요")
         // 옵셔널 바인딩
         guard let inputCorrect = readLine() else{
             return inputNumberReadLine()
@@ -42,7 +42,7 @@ class insertNumber:DigitNumber{
             return inputNumberReadLine()
         }
         
-        print("입력한 숫자는 : \(String(describing: inputCorrect))")
+        print("\n입력한 숫자는 : [\(String(describing: inputCorrect))] 입니다.")
         guard let number = Int(inputCorrect) else{
             return inputNumberReadLine()
         }
@@ -139,13 +139,13 @@ class checkRandomNumber{
             }
 
             if strike == 3{
-                print("정답입니다!")
+                print("\n정답입니다!\n")
                 gameResult.append(numCount)
                
                 break
             }
             
-            print("strike: \(strike),ball: \(ball)")
+            print("\nstrike: \(strike),ball: \(ball)!!")
             
 
             
@@ -153,12 +153,12 @@ class checkRandomNumber{
     }
     //2. 게임 기록 보기
     func gameRecord(){
-        print("< 게임 기록 보기 >")
+        print("\n< 게임 기록 보기 >\n")
         
         //gameCount번째 게임 : 시도 횟수 - numCount
         for i in 0..<gameCount{
             if gameCount == 0{
-                print("아직 게임 데이터가 없습니다.")
+                print("아직 게임 데이터가 없습니다.\n")
             } else{
                 print("\(i + 1)번째 게임 : 시도 횟수 - \(gameResult[i])")
                 
@@ -167,7 +167,7 @@ class checkRandomNumber{
     }
     //3. 종료하기
     func closeGame(){
-        print("< 숫자 야구 게임을 종료합니다 >")
+        print("\n< 숫자 야구 게임을 종료합니다 >\n")
         // 이전의 게임 기록들도 초기화됩니다
         gameCount = 0
         numCount = 0
@@ -178,14 +178,16 @@ class checkRandomNumber{
 
 
 // 게임을 시작하는 클래스
-class StrikeAndBallGameLv5{
+class StrikeAndBallGameLv6{
     let checkNum = checkRandomNumber()
-    
-    //switch case 1,2,3
+ 
     func gameStart(){
         
+        ///while문으로 exit(0)전까지 무한반복
+        ///readLine으로 switch - case 입력값에 따라 처리
         while true{
-            print("환영합니다! 원하시는 번호를 입력해주세요\n1. 게임 시작하기 2. 게임 기록 보기 3. 종료하기")
+            print("===============================\n환영합니다! 원하시는 번호를 입력해주세요\n\n1. 게임 시작하기 2. 게임 기록 보기 3. 종료하기")
+            
             let gameSelect = readLine()
             //checkNum.checkRandomNumber1()
             switch gameSelect{
