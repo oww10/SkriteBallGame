@@ -1,4 +1,4 @@
 
-let game = StrikeAndBallGameLv3()
+let game = StrikeAndBallGameLv4()
 game.gameStart()
 
