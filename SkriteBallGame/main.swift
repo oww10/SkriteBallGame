@@ -1,3 +1,4 @@
 
-let gameStart = StrikeAndBallGameLv2()
-gameStart.gameStart()
+let game = StrikeAndBallGameLv3()
+game.gameStart()
+
