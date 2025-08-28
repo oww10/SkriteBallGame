@@ -66,7 +66,7 @@ class randomNumber:DigitNumber{
     func createRandomNumber() {
         let randomNumber = Int.random(in: 99..<1000)
         
-        print("생성된 랜덤숫자는 \(randomNumber)")
+        //print("생성된 랜덤숫자는 \(randomNumber)")
         let number = randomNumber
         let digitArr = arrDigitNum(randomNum: number)
         
