@@ -88,7 +88,8 @@ class randomNumber:DigitNumber{
     
 }
 
-//게임의 로직 입력받은 값과 컴퓨터가 정해준 값을 각 배열의 할당된 번호마다 비교하고 같은 배열의 번호는 strike 를 + 1하고 같은 번호는 아니어도 배열에 들어있다면 ball에 +1함
+///게임의 로직 입력받은 값과 컴퓨터가 정해준 값을 각 배열의 할당된 번호마다 비교하고 같은 배열의 번호는 strike 를 + 1하고 같은 번호는 아니어도 배열에 들어있다면 ball에 +1함
+///gameResult 배열을 생성하여 정답을 맞췄을때 시도 횟수 숫자(numCount)를 저장
 class checkRandomNumber{
     
     let randomNumber1 = randomNumber()
@@ -121,7 +122,6 @@ class checkRandomNumber{
         while true {
             inputNumber.inputNumberReadLine()
             numCount += 1
-            
             
             strike = 0
             ball = 0
@@ -165,14 +165,7 @@ class checkRandomNumber{
             }
         }
     }
-    //3. 종료하기
-    func closeGame(){
-        print("< 숫자 야구 게임을 종료합니다 >")
-        // 이전의 게임 기록들도 초기화됩니다
-        gameCount = 0
-        numCount = 0
 
-    }
 }
 
 
@@ -193,9 +186,7 @@ class StrikeAndBallGameLv5{
                 checkNum.checkRandomNumber1()
             case "2":
                 checkNum.gameRecord()
-            case "3":
-                checkNum.closeGame()
-                exit(0) // 프로그램을 정상적으로 종료시킴
+
             default:
                 print("올바른 숫자를 입력하세요")
             }
