@@ -3,6 +3,31 @@
 1. 각 자리의 숫자와 위치가 모두 맞으면 '스트라이크', 숫자만 맞고 위치가 다르면 '볼'로 판정됩니다. <br />
 1. 이러한 힌트를 활용하여 상대방의 숫자를 추리해 나가는 게임입니다.<br />
 1. 각 레벨을 통해 게임의 기본 로직부터 사용자 인터페이스, 기록 관리 기능까지 구현합니다.
+## 추가 수정 사항
+<details><summary>(08/30)</summary> 
+
+### 1. class randomNumber 랜덤으로 3자리 숫자 생성 방식 개선
+#### 개선 이유! 이 게임은 같은 숫자를 생성할 수 없으므로 기존의 제약 코드보다 간결하고 직관적이게 작성
+#### 이로 인해 기존의 3자리 숫자를 digit하는 함수도 사용하지 않아 간결하게 생성 가능
+```
+let randomNumber = Int.random(in: 99..<1000)
+        // 만약 중복된 숫자가 들어있다면 재생성
+        let dupRandomNumber = Set(randomNumber1)
+        if dupRandomNumber.count != 3{
+            //print("randomNumber에 겹치는 숫자 생성오류 재생성")
+            return createRandomNumber()
+        }
+======> var numbers1 = [0,1,2,3,4,5,6,7,8,9]
+        numbers1.shuffle()
+        let randomNumber1 = Array(numbers1.prefix(3))
+```
+### 2. protocol DigitNumber 제거
+#### 개선 이유! 기존의 class insertNumber, randomNumber 2가지의 클래스에서 사용하였는데 randomNumber에서 사용하지 않으니 존재 이유를 못찾음! 기존 함수는 insertNumber에 개별 추가
+```
+inputNum = String(number).compactMap { $0.wholeNumberValue }
+```
+</details>
+
 ## 🚀 주요 기능, 개발 과정<br />
 ## 1: 기본 구조 및 정답 생성
 ## 주요 기능
@@ -88,6 +113,9 @@
 
 1. switch 문의 default 케이스를 사용하여 '1', '2', '3' 이외의 입력에 대해 "올바른 숫자를 입력하세요"라는 오류 메시지를 출력하도록 처리했습니다.<br />
 
+
+
+  
 ## 💻 IDEs/Editors<br />
 ![Xcode](https://img.shields.io/badge/Xcode-007ACC?style=for-the-badge&logo=Xcode&logoColor=white)<br />
 ## 📋 Languages<br />
