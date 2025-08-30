@@ -1,23 +1,8 @@
 //exit 때문에 추가
 import Foundation
 
-// class insertNumber, randomNumber에 적용
-protocol DigitNumber{
-    func arrDigitNum(randomNum: Int) -> [Int]
-}
-
-// DigitNumber 프로토콜에 함수 추가(전달받은 정수형을 배열로 바꾸며 compactMap을 통해 각 자리수로 분리
-extension DigitNumber{
-    func arrDigitNum(randomNum: Int) -> [Int]{
-
-        // compactMap으로 각 요소에 대해 주어진 변환을 호출한 결과가 아닌 값을 포함하는 배열을 반환
-        // wholeNumberValue : 이 문자가 정수를 나타낼 경우, 이 문자가 나타내는 숫자 값입니다.
-        return String(randomNum).compactMap { $0.wholeNumberValue }
-    }
-}
-
 //유저가 입력하여 값을 받는 클래스
-class insertNumber:DigitNumber{
+class insertNumber{
     var inputNum: [Int] = [0]
     
     
@@ -48,7 +33,7 @@ class insertNumber:DigitNumber{
         }
         
         
-        inputNum = arrDigitNum(randomNum: number)
+        inputNum = String(number).compactMap { $0.wholeNumberValue }
  
         // **맨 앞자리에 0이 아닌 2,3자리는 0이 가능하게 입력**
         //0포함이면 오류
@@ -61,33 +46,29 @@ class insertNumber:DigitNumber{
 }
 
 //컴퓨터가 임의로 숫자를 정해주는 클래스
-class randomNumber:DigitNumber{
+class randomNumber{
     var randomNum: [Int] = [0]
     func createRandomNumber() {
-        let randomNumber = Int.random(in: 99..<1000)
-//        var numbers = [0,1,2,3,4,5,6,7,8,9]
-//        numbers.shuffle()
-//        var randomNumber = Array(numbers.prefix(3))
-        
-        
-        //print("생성된 랜덤숫자는 \(randomNumber)")
-        let number = randomNumber
-        let digitArr = arrDigitNum(randomNum: number)
+
+        // shuffle로 0~9 숫자를 섞고 prefix(3)으로 3자리수 출력
+        var numbers1 = [0,1,2,3,4,5,6,7,8,9]
+        numbers1.shuffle()
+        let randomNumber1 = Array(numbers1.prefix(3))
         
         // **맨 앞자리에 0이 아닌 2,3자리는 0이 가능하게 입력**
-        if digitArr[2] == 0 {
+        if randomNumber1[2] == 0 {
             //print("randomNumber에 0이 들어있습니다 숫자 생성오류 숫자 재생성")
             return createRandomNumber()
         }
         
         // 만약 중복된 숫자가 들어있다면 재생성
-        let dupRandomNumber = Set(digitArr)
+        let dupRandomNumber = Set(randomNumber1)
         if dupRandomNumber.count != 3{
             //print("randomNumber에 겹치는 숫자 생성오류 재생성")
             return createRandomNumber()
         }
         
-        randomNum = digitArr
+        randomNum = randomNumber1
     }
     
 }
