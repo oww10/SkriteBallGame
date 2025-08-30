@@ -65,6 +65,10 @@ class randomNumber:DigitNumber{
     var randomNum: [Int] = [0]
     func createRandomNumber() {
         let randomNumber = Int.random(in: 99..<1000)
+//        var numbers = [0,1,2,3,4,5,6,7,8,9]
+//        numbers.shuffle()
+//        var randomNumber = Array(numbers.prefix(3))
+        
         
         //print("생성된 랜덤숫자는 \(randomNumber)")
         let number = randomNumber
