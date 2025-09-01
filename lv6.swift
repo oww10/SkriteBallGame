@@ -56,7 +56,7 @@ class randomNumber{
         let randomNumber1 = Array(numbers1.prefix(3))
         
         // **맨 앞자리에 0이 아닌 2,3자리는 0이 가능하게 입력**
-        if randomNumber1[2] == 0 {
+        if randomNumber1[0] == 0 {
             //print("randomNumber에 0이 들어있습니다 숫자 생성오류 숫자 재생성")
             return createRandomNumber()
         }
